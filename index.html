@@ -20,10 +20,19 @@
       document.addEventListener('DOMContentLoaded', fn);
     }
   }
+  var labels = {
+    de: {
+      yAxis: 'Jahresdurchschnitt Hochwasser in cm'
+    },
+    en: {
+      yAxis: 'High tide, yearly mean in cm'
+    }
+  };
   var tidenChart = new TidenChart(document.getElementsByClassName('tidenchart')[0], {
     baseurl: '',
     data: 'data/data_1950.csv',
     animateLine: true,
+    labels: labels['de']
   });
   ready(function(){
     tidenChart.init();

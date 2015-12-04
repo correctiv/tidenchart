@@ -38,7 +38,7 @@ function TidenChart(container, config) {
         .attr('class', 'axis-label')
         .attr("x", 4)
         .attr("dy", ".32em")
-        .text("Hochwasser in cm");
+        .text(this.config.labels.yAxis);
 
   this.tidenGroup = svg.append("g")
       .attr("class", "tiden");
