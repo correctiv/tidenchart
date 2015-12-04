@@ -1,0 +1,56 @@
+.tidenchart svg {
+  font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.tidenchart .axis path,
+.tidenchart .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.tidenchart .axis--y path {
+  display: none;
+}
+
+.tidenchart .axis--y .axis-label {
+  font-weight: bold;
+  font-size: 14px
+}
+
+.tidenchart .tiden {
+  fill: none;
+  stroke: #aaa;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-width: 1.5px;
+}
+
+.tidenchart .tide--hover {
+  stroke: #1f81c1;
+  stroke-width: 5px;
+}
+
+.tidenchart .focus text {
+  stroke: black;
+  fill: black;
+  text-anchor: left;
+  font-size: 18px;
+}
+
+.tidenchart .focus text.shadow {
+    stroke: white;
+    stroke-width: 2.5px;
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    opacity: 0.9;
+}
+
+.tidenchart .voronoi path {
+  fill: none;
+  pointer-events: all;
+}
+
+.tidenchart .guideline {
+	stroke: black;
+  stroke-dasharray: 10px 5px;
+}
