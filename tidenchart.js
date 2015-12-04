@@ -145,7 +145,8 @@ TidenChart.prototype.redraw = function() {
 
   this.tidenGroup.selectAll("path")
       .data(this.tiden).enter()
-        .append("path");
+        .append("path")
+        .attr('class', 'tide');
 
   this.tidenGroup.selectAll("path")
       .data(this.tiden)
@@ -165,13 +166,19 @@ TidenChart.prototype.redraw = function() {
           .map(function(d) { return d.values; })));
   voronoi
     .enter().append("path");
-  voronoi
+
+  var voronoiEvent = voronoi
       .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
-      .datum(function(d) { return d.point; })
-      .on("mouseover", this.highlightTide.bind(this))
-      .on("touchstart", this.highlightTide.bind(this))
-      .on("mouseout", this.unhighlightTide.bind(this))
-      .on("touchend", this.unhighlightTide.bind(this));
+      .datum(function(d) { return d.point; });
+
+  if ('ontouchstart' in document.documentElement) {
+      voronoiEvent
+        .on("touchstart", this.highlightTide.bind(this));
+  } else {
+      voronoiEvent
+        .on("mouseover", this.highlightTide.bind(this))
+        .on("mouseout", this.unhighlightTide.bind(this));
+  }
 };
 
 TidenChart.prototype.animateLine = function(paths) {
@@ -189,6 +196,7 @@ TidenChart.prototype.animateLine = function(paths) {
 };
 
 TidenChart.prototype.highlightTide = function(d) {
+    this.unhighlightTide();
     var tide = this.tidenMap[d.name];
     d3.select(tide.line).classed("tide--hover", true);
     tide.line.parentNode.appendChild(tide.line);
@@ -207,8 +215,7 @@ TidenChart.prototype.highlightTide = function(d) {
 };
 
 TidenChart.prototype.unhighlightTide = function(d) {
-    var tide = this.tidenMap[d.name];
-    d3.select(tide.line).classed("tide--hover", false);
+    this.svg.selectAll('.tide').classed("tide--hover", false);
     this.focus.attr("transform", "translate(-100,-100)");
     this.guideline
       .style('display', 'none');
