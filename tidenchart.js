@@ -9,7 +9,6 @@ window.TidenChart = (function(){
 'use static';
 
 var margin = {top: 20, right: 40, bottom: 30, left: 40};
-var timeFormat = d3.time.format("%Y-%m-%d");
 
 function TidenChart(container, config) {
   this.container = container;
@@ -69,6 +68,8 @@ function TidenChart(container, config) {
 TidenChart.prototype.init = function() {
   var self = this;
   this.resize();
+
+  var timeFormat = d3.time.format("%Y-%m-%d");
 
   d3.csv(this.config.baseurl + this.config.data, function(error, tiden) {
     self.years = undefined;
