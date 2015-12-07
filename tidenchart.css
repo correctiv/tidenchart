@@ -1,6 +1,13 @@
-.tidenchart svg {
+.tidenchart {
+  position: relative;
   font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #f5f5f5;
+}
+
+@media (max-width: 480px) {
+  .tidenchart {
+    font-size: 8px;
+  }
 }
 
 .tidenchart .axis path,
@@ -54,4 +61,13 @@
 .tidenchart .guideline {
 	stroke: black;
   stroke-dasharray: 10px 5px;
+}
+
+.tidenchart .source-description {
+  color: black;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
 }

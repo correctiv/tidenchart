@@ -8,7 +8,7 @@
 window.TidenChart = (function(){
 'use static';
 
-var margin = {top: 20, right: 40, bottom: 60, left: 40};
+var margin = {top: 20, right: 40, bottom: 65, left: 40};
 
 function TidenChart(container, config) {
   this.container = container;
@@ -24,7 +24,8 @@ function TidenChart(container, config) {
       .x(function(d) { return x(d.date); })
       .y(function(d) { return y(d.value); });
 
-  var svgEl = this.svgEl = d3.select(container).append("svg");
+  var containerEl = d3.select(container);
+  var svgEl = this.svgEl = containerEl.append("svg");
   var svg = this.svg = svgEl.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -42,8 +43,8 @@ function TidenChart(container, config) {
   this.tidenGroup = svg.append("g")
       .attr("class", "tiden");
 
-  svg.append("text")
-    .attr("class", "source")
+  containerEl.append("p")
+    .attr("class", "source-description")
     .text(this.config.source);
 
   this.guideline = svg.append("line")
@@ -146,9 +147,6 @@ TidenChart.prototype.redraw = function() {
       .call(d3.svg.axis()
         .scale(this.y)
         .orient("left"));
-
-  this.svg.select('.source')
-    .attr("y", this.height + 40);
 
   this.tidenGroup.selectAll("path")
       .data(this.tiden).enter()
