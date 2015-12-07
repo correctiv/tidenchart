@@ -22,12 +22,12 @@
   }
   var labels = {
     de: {
-      yAxis: 'Hochwasser in cm (gleitender Mittelwert \u00fcber 5 Jahre)'
+      yAxis: 'Hochwasser in cm (Jahresdurchschnitt)'
     }
   };
   var tidenChart = new TidenChart(document.getElementsByClassName('tidenchart')[0], {
     baseurl: '',
-    data: '../data/data_1950_5a.csv',
+    data: '../data/data_1950.csv',
     animateLine: true,
     labels: labels['de'],
     source: 'Datenquelle: Wasser- und Schifffahrtsverwaltung des Bundes (WSV), bereitgestellt durch die Bundesanstalt für Gewässerkunde (BfG)'

@@ -6,39 +6,10 @@
 <link rel="stylesheet" href="tidenchart.css">
 </head>
 <body>
-  <div class="tidenchart">
-  </div>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script src="tidenchart.js"></script>
-<script>
-(function(){
-  'use strict';
-  function ready(fn) {
-    if (document.readyState != 'loading'){
-      fn();
-    } else {
-      document.addEventListener('DOMContentLoaded', fn);
-    }
-  }
-  var labels = {
-    de: {
-      yAxis: 'Jahresdurchschnitt Hochwasser in cm'
-    },
-    en: {
-      yAxis: 'High tide, yearly mean in cm'
-    }
-  };
-  var tidenChart = new TidenChart(document.getElementsByClassName('tidenchart')[0], {
-    baseurl: '',
-    data: 'data/data_1950.csv',
-    animateLine: true,
-    labels: labels['de'],
-    source: 'Datenquelle: Wasser- und Schifffahrtsverwaltung des Bundes (WSV), bereitgestellt durch die Bundesanstalt für Gewässerkunde (BfG)'
-  });
-  ready(function(){
-    tidenChart.init();
-  });
-}());
-</script>
+<iframe src="./charts/cuxhaven.html" height="500px" scrolling="no" width="100%" frameborder="0"></iframe>
+<iframe src="./charts/data_1950.html" height="500px" scrolling="no" width="100%" frameborder="0"></iframe>
+<iframe src="./charts/data_1950_5a.html" height="500px" scrolling="no" width="100%" frameborder="0"></iframe>
+<iframe src="./charts/data_1970.html" height="500px" scrolling="no" width="100%" frameborder="0"></iframe>
+<iframe src="./charts/data_1970_5a.html" height="500px" scrolling="no" width="100%" frameborder="0"></iframe>
 </body>
 </html>
