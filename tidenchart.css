@@ -1,5 +1,6 @@
 .tidenchart svg {
   font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #f5f5f5;
 }
 
 .tidenchart .axis path,
