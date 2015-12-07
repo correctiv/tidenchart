@@ -7,3 +7,5 @@ Included data:
  - data_1950_5a.csv: above with rolling mean over yearly means with 5 year window, with min period 1
  - data_1970.csv: only with stations available between 1971 - 2014, mean of station high tide measurements per year
  - data_1970_5a.csv: above with rolling mean over yearly means with 5 year window, with min period 1
+
+Source: *Wasser- und Schifffahrtsverwaltung des Bundes (WSV)*, provided by *Bundesanstalt für Gewässerkunde (BfG)*

@@ -8,7 +8,7 @@
 window.TidenChart = (function(){
 'use static';
 
-var margin = {top: 20, right: 40, bottom: 30, left: 40};
+var margin = {top: 20, right: 40, bottom: 60, left: 40};
 
 function TidenChart(container, config) {
   this.container = container;
@@ -41,6 +41,10 @@ function TidenChart(container, config) {
 
   this.tidenGroup = svg.append("g")
       .attr("class", "tiden");
+
+  svg.append("text")
+    .attr("class", "source")
+    .text(this.config.source);
 
   this.guideline = svg.append("line")
     .style('display', 'none')
@@ -142,6 +146,9 @@ TidenChart.prototype.redraw = function() {
       .call(d3.svg.axis()
         .scale(this.y)
         .orient("left"));
+
+  this.svg.select('.source')
+    .attr("y", this.height + 40);
 
   this.tidenGroup.selectAll("path")
       .data(this.tiden).enter()

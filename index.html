@@ -30,9 +30,10 @@
   };
   var tidenChart = new TidenChart(document.getElementsByClassName('tidenchart')[0], {
     baseurl: '',
-    data: 'data/data_1950.csv',
+    data: 'data/cuxhaven.csv',
     animateLine: true,
-    labels: labels['de']
+    labels: labels['de'],
+    source: 'Datenquelle: Wasser- und Schifffahrtsverwaltung des Bundes (WSV), bereitgestellt durch die Bundesanstalt für Gewässerkunde (BfG)'
   });
   ready(function(){
     tidenChart.init();
