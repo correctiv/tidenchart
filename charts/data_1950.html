@@ -1,41 +1,6 @@
-<!DOCTYPE html>
-<html doctype>
-<head>
-<meta charset="utf-8">
-<title>Tiden</title>
-<link rel="stylesheet" href="../tidenchart.css">
-</head>
-<body>
-  <div class="tidenchart">
-  </div>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script src="../tidenchart.js"></script>
-<script>
-(function(){
-  'use strict';
-  function ready(fn) {
-    if (document.readyState != 'loading'){
-      fn();
-    } else {
-      document.addEventListener('DOMContentLoaded', fn);
-    }
-  }
-  var labels = {
-    de: {
-      yAxis: 'Hochwasser in cm (Jahresdurchschnitt)'
-    }
-  };
-  var tidenChart = new TidenChart(document.getElementsByClassName('tidenchart')[0], {
-    baseurl: '',
-    data: '../data/data_1950.csv',
-    animateLine: true,
-    labels: labels['de'],
-    source: 'Datenquelle: Wasser- und Schifffahrtsverwaltung des Bundes (WSV), bereitgestellt durch die Bundesanstalt für Gewässerkunde (BfG)'
-  });
-  ready(function(){
-    tidenChart.init();
-  });
-}());
-</script>
-</body>
-</html>
+---
+layout: base
+title: Hochwasser in cm (Jahresdurchschnitt)
+data: data_1950.csv
+
+---
